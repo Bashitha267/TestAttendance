@@ -43,7 +43,7 @@ function App() {
             height={300}
             onUpdate={(err, result) => {
               if (result) {
-                setId(result.getText()); // set scanned ID
+                setId((result as any).getText()); // set scanned ID
                 setScanning(false); // stop scanning after successful scan
               } else if (err) {
                 console.error(err);
