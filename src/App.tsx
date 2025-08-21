@@ -19,7 +19,7 @@ function App() {
      if (!id) return;
     const fetchdata=async()=>{
       try{
-        const userData=await fetch(`http://localhost:4000/api/getuser/${id}`)
+        const userData=await fetch(`https://testattendancebackend.onrender.com/api/getuser/${id}`)
         const newData=await userData.json()
         if(newData){
           setData(newData)
@@ -43,7 +43,8 @@ function App() {
             height={300}
             onUpdate={(err, result) => {
               if (result) {
-                setId((result as any).getText()); // set scanned ID
+                setId((result as any).getText());
+                console.log(result) // set scanned ID
                 setScanning(false); // stop scanning after successful scan
               } else if (err) {
                 console.error(err);
